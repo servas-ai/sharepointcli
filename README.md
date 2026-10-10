@@ -13,6 +13,17 @@ Mitarbeiters** über Microsoft Graph lesend auf SharePoint zugreift.
 > Token-Cache) laufen grün. **Gegen einen echten Microsoft-365-Tenant ist das Tool noch zu
 > verifizieren** – bisher stand kein Live-Tenant zur Verfügung.
 
+## Voraussetzungen
+
+| Was | Wofür |
+| --- | --- |
+| Microsoft-365-Account der Firma | Anmeldung; Rechte kommen aus diesem Login |
+| Entra-App-Registrierung der Firma (Tenant-ID, Client-ID) | einmalig durch den Admin, siehe „Einrichtung beim Kunden“ |
+| Webbrowser | interaktive Anmeldung (Rückfall: `--device-code`) |
+| Netzwerkzugang zu `login.microsoftonline.com`, `graph.microsoft.com` | Anmeldung und Graph-API |
+
+Betriebssysteme: Windows 10/11, macOS 12+, Linux (amd64/arm64). Keine weiteren Laufzeitabhängigkeiten (ein einzelnes Go-Programm).
+
 ## Installation
 
 1. Passendes Archiv aus dem Release herunterladen:
