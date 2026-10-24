@@ -179,3 +179,46 @@ Einzige externe Abhängigkeit: `github.com/AzureAD/microsoft-authentication-libr
 ## Lizenz
 
 MIT, siehe [LICENSE](LICENSE).
+
+---
+
+## 🧭 SERVAS Stack Map
+
+> **servas-ai/sharepointcli** · Delegated SharePoint read path. Architecture/ownership guide, not production-acceptance claim.
+
+### ✨ Scope
+
+- **Role:** Delegated SharePoint read path.
+- **Boundary:** this repository owns only its documented component; other services remain their own source of truth.
+- **Security:** least privilege, explicit principal/tenant scope, no secrets in Git/prompts, and read-only reconciliation for uncertain effects.
+- **Release:** pin source SHA and distinguish unit/synthetic tests from live acceptance.
+
+### 🗺️ System diagram
+
+```mermaid
+flowchart LR
+ C[Caller + principal] --> P[Policy / ACL]
+ P --> Q[Bounded request]
+ Q --> N[Normalize + cursor]
+ N --> R[Result + provenance]
+ R --> C
+```
+
+### 🖼️ Screenshots and visuals
+
+Only use checked-in screenshots captured from the actual tested build. No verified runtime screenshot was found in the README during this pass; no mock screenshot is represented as production evidence.
+
+### ✅ Readiness checklist
+
+- [ ] Source and deployed revision recorded.
+- [ ] Permissions and tenant/company scope verified.
+- [ ] Failure, retry, revoke and restore tested.
+- [ ] Runtime evidence linked; unit tests alone are not product acceptance.
+- [ ] UI screenshots, if relevant, captured from the actual tested build.
+
+### 🔗 Integration references
+
+- [Unified SERVAS stack](https://github.com/Martin-Hausleitner/hans/blob/3cfe8247af2df90f8c7173251d7cf2cf9a7a29ff/sources/transcripts/meetings/2026-10-24-kira-servas-review/SERVAS-GESAMTSTACK-MATRIX-MACRO-PAPERCLIP-HANS.md)
+- [WorkOS execution plan R3.1](https://github.com/Martin-Hausleitner/hans/blob/3cf6690f0c7c0f829f81a2c4f54e3463444a2a34/sources/transcripts/meetings/2026-10-24-kira-servas-review/repo-review-r2/EXECUTION-PLAN-R3.md)
+
+*Visual README overlay for review. This section does not imply the component is live, merged or accepted.*
